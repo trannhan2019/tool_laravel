@@ -3,9 +3,12 @@
 namespace App\Imports;
 
 use App\Models\Company;
+use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+// use Maatwebsite\Excel\Concerns\ToCollection;
 
-class CompaniesImport implements ToModel
+class CompaniesImport implements ToModel,WithHeadingRow
 {
     /**
      * @param array $row
@@ -15,13 +18,26 @@ class CompaniesImport implements ToModel
     public function model(array $row)
     {
         return new Company([
-            'name' => $row[0],
-            'alias' => $row[1]
+            'name' => $row['name'],
+            'alias' => $row['alias'],
+            'isActive' => 1,
         ]);
     }
 
     public function headingRow(): int
     {
-        return 2;
+        return 1;
     }
+
+    // public function collection(Collection $rows)
+    // {
+    //     foreach ($rows as $row)
+    //     {
+    //         Company::create([
+    //             'name' => $row[0],
+    //             'alias' => $row[1],
+    //             'isActive' => $row[2],
+    //         ]);
+    //     }
+    // }
 }

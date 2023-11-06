@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\CompanyController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\DepartmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/company', [CompanyController::class, 'fileImport']);
+Route::post('/company', [CompanyController::class, 'store']);
+Route::post('/department', [DepartmentController::class, 'store']);
