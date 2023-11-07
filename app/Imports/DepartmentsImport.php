@@ -9,18 +9,23 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 class DepartmentsImport implements ToModel, WithHeadingRow
 {
     /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+     * @param array $row
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
     public function model(array $row)
     {
         return new Department([
             'name' => $row['name'],
             'alias' => $row['alias'],
-            'isActive' => $row['isActive'],
-            'location'=>$row['location'],
-            'company_id'=>$row['company_id'],
+            'isActive' => 1,
+            'location' => $row['location'],
+            'company_id' => $row['company_id'],
         ]);
+    }
+
+    public function headingRow(): int
+    {
+        return 1;
     }
 }

@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/company', [CompanyController::class, 'store']);
-Route::post('/department', [DepartmentController::class, 'store']);
+Route::post('/data-company', [DataController::class, 'company']);
+Route::post('/data-department', [DataController::class, 'department']);
+Route::post('/data-role', [DataController::class, 'role']);
+Route::post('/data-user', [DataController::class, 'user']);
