@@ -23,3 +23,4 @@ Route::post('/data-company', [DataController::class, 'company']);
 Route::post('/data-department', [DataController::class, 'department']);
 Route::post('/data-role', [DataController::class, 'role']);
 Route::post('/data-user', [DataController::class, 'user']);
+Route::post('/data-cate-book', [DataController::class, 'cate_book']);

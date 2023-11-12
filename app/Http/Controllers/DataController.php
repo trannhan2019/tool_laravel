@@ -8,6 +8,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\DepartmentsImport;
 use App\Imports\RolesImport;
 use App\Imports\UsersImport;
+use App\Imports\CategoryBooksImport;
 
 class DataController extends Controller
 {
@@ -32,6 +33,12 @@ class DataController extends Controller
     public function user(Request $request)
     {
         Excel::import(new UsersImport, $request->file('user'));
+        return response()->json('done');
+    }
+
+    public function cate_book(Request $request)
+    {
+        Excel::import(new CategoryBooksImport, $request->file('category_book'));
         return response()->json('done');
     }
 }
