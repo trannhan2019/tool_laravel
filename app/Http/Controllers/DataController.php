@@ -9,6 +9,7 @@ use App\Imports\DepartmentsImport;
 use App\Imports\RolesImport;
 use App\Imports\UsersImport;
 use App\Imports\CategoryBooksImport;
+use App\Imports\BooksImport;
 
 class DataController extends Controller
 {
@@ -39,6 +40,12 @@ class DataController extends Controller
     public function cate_book(Request $request)
     {
         Excel::import(new CategoryBooksImport, $request->file('category_book'));
+        return response()->json('done');
+    }
+
+    public function book(Request $request)
+    {
+        Excel::import(new BooksImport, $request->file('book'));
         return response()->json('done');
     }
 }
