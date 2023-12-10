@@ -22,8 +22,9 @@ class BooksImport implements ToModel, WithHeadingRow
             'description' => $row['description'],
             'code' => $row['code'],
             'storage_location' => $row['storage_location'],
-            'more_info' => $row['more_info'],            
+            'more_info' => $row['more_info'],
             'category_book_id' => $row['category_book_id'],
+            'photo_url' => $row['photo_url'],
         ]);
     }
 
